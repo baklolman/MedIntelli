@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fracture Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/fracture_guide.png" alt="Fracture Guide">
+        <h1>Fracture — Broken Bone First Aid</h1>
+        <p class="subtitle">How to immobilize and treat a suspected bone fracture before medical help arrives.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Do Not Move the Injured Limb</h4>
+                    <p>Moving a fractured bone can cause further injury, damage nerves or blood vessels. Immobilize the
+                        area and call for help. For spinal injuries, do NOT move the person at all.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Recognize the Signs</h4>
+                        <p>Intense pain, swelling, deformity, bruising, inability to move the limb, or grinding
+                            sensation. The person may have heard a snap or crack.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Immobilize the Area</h4>
+                        <p>Keep the injured limb as still as possible. Use a makeshift splint (rolled newspaper, stick,
+                            cardboard) padded with cloth. Splint the joint above and below the fracture.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Apply Ice</h4>
+                        <p>Apply an ice pack wrapped in cloth to the area for 15–20 minutes to reduce swelling. Never
+                            apply ice directly to skin.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Control Bleeding (if open fracture)</h4>
+                        <p>If bone is visible or the skin is broken, cover the wound with a sterile bandage. Apply
+                            gentle pressure around (not on) the wound. Do not try to push the bone back in.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Treat for Shock</h4>
+                        <p>Keep the person warm, still, and comfortable. Elevate the legs if possible (unless the leg is
+                            fractured). Monitor their breathing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Immobilize the fracture in the position found</li>
+                        <li>Apply ice wrapped in cloth to reduce swelling</li>
+                        <li>Support the limb with slings or splints</li>
+                        <li>Seek medical help — all fractures need X-rays</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't try to straighten or realign the bone</li>
+                        <li>Don't move the person if a spinal injury is suspected</li>
+                        <li>Don't apply heat to the fracture site</li>
+                        <li>Don't let the person eat or drink (surgery may be needed)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Follow the orthopedic surgeon's
+                        advice regarding cast care, weight-bearing, and follow-up X-rays.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Physical therapy may be needed
+                        after cast removal to restore range of motion and strength.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poisoning Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/poisoning_guide.png" alt="Poisoning Guide">
+        <h1>Poisoning — Toxic Ingestion Response</h1>
+        <p class="subtitle">What to do when someone swallows, inhales, or contacts a poisonous substance.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Call Poison Control or 911/112 Immediately</h4>
+                    <p>Do not wait for symptoms. Call Poison Control (in the US: 1-800-222-1222) or emergency services.
+                        Keep the poison container for identification. If the person is unconscious, having a seizure, or
+                        difficulty breathing, call 911 immediately.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Identify the Poison</h4>
+                        <p>Determine what was swallowed/inhaled, how much, and when. Save the container, label, or a
+                            sample. Note any pills remaining to estimate how many were taken.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Call for Help</h4>
+                        <p>Call Poison Control or 911/112. Provide: the substance, amount, time of exposure, the
+                            person's age and weight, and symptoms.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Follow Instructions Given</h4>
+                        <p>Poison Control will tell you exactly what to do. This may include giving water, going to the
+                            ER, or monitoring at home. Follow their advice precisely.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>For Inhaled Poisons</h4>
+                        <p>Move the person to fresh air immediately. Open windows and doors. If the person is not
+                            breathing, begin CPR. Do not enter a confined space with toxic fumes without protection.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>For Skin/Eye Contact</h4>
+                        <p>Remove contaminated clothing. Rinse skin with running water for 15–20 minutes. For eye
+                            exposure, flush eyes with clean water for 15–20 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Call Poison Control or emergency services immediately</li>
+                        <li>Save the container/label of the substance</li>
+                        <li>Move to fresh air if inhaled</li>
+                        <li>Rinse skin or eyes if contacted</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't induce vomiting unless told to by Poison Control</li>
+                        <li>Don't give anything by mouth unless instructed</li>
+                        <li>Don't use home remedies (milk, salt water, etc.) without guidance</li>
+                        <li>Don't neutralize the poison (e.g., giving acid for alkali ingestion)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Even if symptoms are mild, follow
+                        up with a doctor. Some poisons cause delayed organ damage (liver, kidneys) that may not show
+                        symptoms for days.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Store all chemicals, medications,
+                        and cleaning products out of children's reach. Use child-proof locks.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

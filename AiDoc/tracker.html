@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MySymptoms Symptom Tracker - Track your symptoms daily and discover patterns">
+    <title>Symptom Tracker — MySymptoms</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+
+<body class="tracker-page-body">
+
+    <!-- Background Decoration -->
+    <div class="glass-background"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Rising Severity Alert Banner -->
+    <div id="severity-alert-banner" class="severity-alert-banner hidden">
+        <div class="alert-banner-inner">
+            <i class="ri-alarm-warning-fill"></i>
+            <div>
+                <strong>Severity is rising</strong>
+                <span>Your pain has been increasing for 3+ days. Consider seeking medical care.</span>
+            </div>
+            <button id="dismiss-alert-btn" class="alert-dismiss-btn"><i class="ri-close-line"></i></button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-btn">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+                <button id="theme-toggle-btn" class="nav-btn" title="Toggle Dark Mode">
+                    <i class="ri-moon-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="tracker-container">
+
+        <!-- Page Hero -->
+        <div class="tracker-hero">
+            <h1><i class="ri-pulse-line"></i> Symptom Tracker</h1>
+            <p>Log daily check-ins and let AI uncover hidden patterns in your health data.</p>
+        </div>
+
+        <!-- Quick Stats Bar -->
+        <div class="tracker-quick-stats" id="tracker-quick-stats">
+            <div class="quick-stat">
+                <i class="ri-fire-fill" style="color:#f59e0b"></i>
+                <span id="streak-count">0</span>
+                <label>Day Streak</label>
+            </div>
+            <div class="quick-stat-divider"></div>
+            <div class="quick-stat">
+                <i class="ri-bar-chart-fill" style="color:var(--primary-color)"></i>
+                <span id="weekly-avg">—</span>
+                <label>7-Day Avg</label>
+            </div>
+            <div class="quick-stat-divider"></div>
+            <div class="quick-stat">
+                <i class="ri-file-list-3-fill" style="color:#8b5cf6"></i>
+                <span id="total-entries">0</span>
+                <label>Total Entries</label>
+            </div>
+        </div>
+
+        <!-- Daily Check-in Card -->
+        <section class="tracker-checkin glass-panel" id="checkin-section">
+            <div class="checkin-header">
+                <h2><i class="ri-add-circle-line"></i> Daily Check-in</h2>
+                <span id="checkin-date" class="checkin-date"></span>
+            </div>
+
+            <div id="already-logged-banner" class="already-logged-banner hidden">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>You've already logged today! Editing your entry below.</span>
+            </div>
+
+            <form id="checkin-form" class="checkin-form">
+                <!-- Pain Level -->
+                <div class="checkin-field">
+                    <label>Pain Level</label>
+                    <div class="checkin-pain-container">
+                        <input type="range" id="checkin-pain" min="1" max="10" value="3" class="pain-slider">
+                        <div class="pain-scale-labels">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                        </div>
+                        <div id="checkin-pain-label" class="pain-label mild">3 — Mild</div>
+                    </div>
+                </div>
+
+                <!-- Symptoms (Chip Selector) -->
+                <div class="checkin-field">
+                    <label>Symptoms</label>
+                    <div class="symptom-chips" id="symptom-chips">
+                        <button type="button" class="symptom-chip" data-symptom="headache"><i class="ri-brain-line"></i>
+                            Headache</button>
+                        <button type="button" class="symptom-chip" data-symptom="nausea"><i
+                                class="ri-emotion-sad-line"></i> Nausea</button>
+                        <button type="button" class="symptom-chip" data-symptom="fatigue"><i
+                                class="ri-battery-low-line"></i> Fatigue</button>
+                        <button type="button" class="symptom-chip" data-symptom="fever"><i class="ri-temp-hot-line"></i>
+                            Fever</button>
+                        <button type="button" class="symptom-chip" data-symptom="cough"><i class="ri-lungs-line"></i>
+                            Cough</button>
+                        <button type="button" class="symptom-chip" data-symptom="body_pain"><i
+                                class="ri-body-scan-line"></i> Body Pain</button>
+                        <button type="button" class="symptom-chip" data-symptom="dizziness"><i
+                                class="ri-loader-4-line"></i> Dizziness</button>
+                        <button type="button" class="symptom-chip" data-symptom="insomnia"><i
+                                class="ri-moon-foggy-line"></i> Insomnia</button>
+                        <button type="button" class="symptom-chip" data-symptom="anxiety"><i
+                                class="ri-mental-health-line"></i> Anxiety</button>
+                        <button type="button" class="symptom-chip" data-symptom="stomach_pain"><i
+                                class="ri-rest-time-line"></i> Stomach Pain</button>
+                    </div>
+                </div>
+
+                <!-- Mood -->
+                <div class="checkin-field">
+                    <label>Mood</label>
+                    <div class="mood-selector" id="mood-selector">
+                        <button type="button" class="mood-btn" data-mood="great" title="Great">😊</button>
+                        <button type="button" class="mood-btn" data-mood="good" title="Good">🙂</button>
+                        <button type="button" class="mood-btn active" data-mood="okay" title="Okay">😐</button>
+                        <button type="button" class="mood-btn" data-mood="tired" title="Tired">😴</button>
+                        <button type="button" class="mood-btn" data-mood="bad" title="Bad">😞</button>
+                        <button type="button" class="mood-btn" data-mood="awful" title="Awful">😣</button>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="checkin-field">
+                    <label for="checkin-notes">Notes <span class="optional-tag">(optional)</span></label>
+                    <textarea id="checkin-notes" placeholder="Any additional details — meals, sleep, triggers..."
+                        rows="2"></textarea>
+                </div>
+
+                <button type="submit" id="checkin-submit" class="primary-btn submit-btn">
+                    <i class="ri-check-line"></i>
+                    <span>Log Check-in</span>
+                    <div class="spinner hidden"></div>
+                </button>
+            </form>
+        </section>
+
+        <!-- Trend Chart -->
+        <section class="tracker-chart-section glass-panel" id="chart-section">
+            <div class="chart-header">
+                <h2><i class="ri-line-chart-line"></i> Pain Timeline</h2>
+                <div class="chart-range-toggle">
+                    <button class="range-btn active" data-range="7">7 Days</button>
+                    <button class="range-btn" data-range="30">30 Days</button>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="pain-chart"></canvas>
+            </div>
+            <div id="chart-empty" class="chart-empty">
+                <i class="ri-bar-chart-box-line"></i>
+                <p>Start logging daily check-ins to see your pain trend chart here.</p>
+            </div>
+        </section>
+
+        <!-- AI Trend Summary -->
+        <section id="ai-trend-section" class="tracker-trend-section glass-panel hidden">
+            <div class="trend-header">
+                <h2><i class="ri-sparkling-2-fill"></i> AI Trend Analysis</h2>
+                <span class="trend-badge">Powered by AI</span>
+            </div>
+            <div id="trend-loading" class="trend-loading hidden">
+                <div class="spinner"></div>
+                <span>Analyzing your symptom patterns...</span>
+            </div>
+            <div id="trend-content" class="trend-content">
+                <!-- AI summary injected here -->
+            </div>
+        </section>
+
+        <!-- Log History -->
+        <section class="tracker-history glass-panel" id="log-history-section">
+            <div class="profile-section-header">
+                <h2><i class="ri-history-line"></i> Recent Logs</h2>
+            </div>
+            <div id="log-history-list" class="log-history-list">
+                <div class="activity-empty">
+                    <i class="ri-file-list-3-line"></i>
+                    <p>No logs yet. Complete your first daily check-in above!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </div>
+            <p class="footer-disclaimer">MySymptoms is an AI-powered health guidance tool for informational purposes
+                only. It does not replace professional medical advice, diagnosis, or treatment.</p>
+            <div class="footer-links">
+                <a href="terms.html"><i class="ri-file-list-3-line"></i> Terms & Conditions</a>
+                <span class="footer-divider">|</span>
+                <a href="privacy.html"><i class="ri-shield-check-line"></i> Privacy Policy</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 MySymptoms. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-performance-compat.js"></script>
+    <script src="tracker.js"></script>
+    <script src="mobile-nav.js"></script>
+</body>
+
+</html>

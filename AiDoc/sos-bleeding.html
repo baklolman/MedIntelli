@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleeding Control — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/bleeding_guide.png" alt="Bleeding Control Guide">
+        <h1>Severe Bleeding Control</h1>
+        <p class="subtitle">Stop life-threatening blood loss with direct pressure and proper wound management.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Severe Bleeding Can Be Fatal Within Minutes</h4>
+                    <p>Call 911/112 immediately. A person can bleed to death in as few as 5 minutes from a severe wound.
+                        Apply pressure immediately — don't wait for help to arrive.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Ensure Safety</h4>
+                        <p>Put on gloves if available. Protect yourself from bloodborne pathogens. If no gloves, use a
+                            plastic bag or multiple layers of cloth.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Apply Direct Pressure</h4>
+                        <p>Use a clean cloth, bandage, or clothing and press firmly on the wound. Apply steady,
+                            continuous pressure with both hands if needed.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Don't Remove Soaked Cloth</h4>
+                        <p>If the cloth soaks through, add more layers on top. Removing it disrupts clot formation and
+                            increases bleeding.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Elevate the Wound</h4>
+                        <p>If possible, raise the injured area above the level of the heart to slow bleeding. Keep the
+                            person lying down.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Apply a Tourniquet (if trained)</h4>
+                        <p>For life-threatening limb bleeding that can't be controlled with pressure, apply a tourniquet
+                            2–3 inches above the wound. Note the time it was applied.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <h4>Monitor for Shock</h4>
+                        <p>Watch for pale skin, rapid breathing, confusion, or unconsciousness. Keep the person warm and
+                            calm until help arrives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Apply firm, continuous pressure</li>
+                        <li>Keep the person lying down and calm</li>
+                        <li>Elevate the injured limb</li>
+                        <li>Call for emergency help immediately</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't remove bandages once applied — add more layers</li>
+                        <li>Don't apply a tourniquet unless trained</li>
+                        <li>Don't remove embedded objects from wounds</li>
+                        <li>Don't give the person anything to drink</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>All severe bleeding requires
+                        medical evaluation. Stitches, wound closure, or surgery may be needed.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Check tetanus vaccination status.
+                        A booster may be needed for deep or dirty wounds.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

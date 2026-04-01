@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MySymptoms - Your personal health profile and consultation history">
+    <title>My Profile — MySymptoms</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="profile-page-body">
+
+    <!-- Background Decoration -->
+    <div class="glass-background"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-btn" id="back-home-btn">
+                    <i class="ri-home-4-line"></i>
+                    <span>Home</span>
+                </a>
+                <button id="theme-toggle-btn" class="nav-btn" title="Toggle Dark Mode">
+                    <i class="ri-moon-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-container">
+
+        <!-- Profile Hero -->
+        <section class="profile-hero glass-panel" id="profile-hero">
+            <div class="profile-avatar-ring">
+                <img id="profile-avatar" src="" alt="User Avatar" class="profile-avatar">
+                <div class="avatar-status-dot"></div>
+            </div>
+            <h1 id="profile-name" class="profile-name" style="margin-bottom: 0.2rem;">Loading...</h1>
+            <p id="profile-mid-badge"
+                style="display: none; color: var(--primary-color); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
+                <i class="ri-shield-cross-fill" style="margin-right:0.2rem;"></i> <span id="profile-mid-text"></span>
+            </p>
+            <p id="profile-email" class="profile-email">...</p>
+            <div class="profile-badges">
+                <span class="profile-badge" id="profile-country-badge">
+                    <i class="ri-map-pin-2-fill"></i>
+                    <span id="profile-country">—</span>
+                </span>
+                <span class="profile-badge" id="profile-lang-badge">
+                    <i class="ri-translate-2"></i>
+                    <span id="profile-language">English</span>
+                </span>
+                <span class="profile-badge member-badge" id="profile-member-badge">
+                    <i class="ri-shield-star-fill"></i>
+                    <span>Member</span>
+                </span>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section class="profile-stats-grid">
+            <div class="stat-card glass-panel" style="--delay: 0.1s">
+                <div class="stat-icon-wrap stat-icon-consultations">
+                    <i class="ri-stethoscope-line"></i>
+                </div>
+                <div class="stat-value" id="stat-consultations">—</div>
+                <div class="stat-label">Consultations</div>
+            </div>
+            <div class="stat-card glass-panel" style="--delay: 0.2s">
+                <div class="stat-icon-wrap stat-icon-streak">
+                    <i class="ri-calendar-check-fill"></i>
+                </div>
+                <div class="stat-value" id="stat-member-since">—</div>
+                <div class="stat-label">Member Since</div>
+            </div>
+            <div class="stat-card glass-panel" style="--delay: 0.3s">
+                <div class="stat-icon-wrap stat-icon-severity">
+                    <i class="ri-pulse-line"></i>
+                </div>
+                <div class="stat-value" id="stat-last-severity">—</div>
+                <div class="stat-label">Last Severity</div>
+            </div>
+            <div class="stat-card glass-panel" style="--delay: 0.4s">
+                <div class="stat-icon-wrap stat-icon-theme">
+                    <i class="ri-palette-line"></i>
+                </div>
+                <div class="stat-value" id="stat-theme">Light</div>
+                <div class="stat-label">Theme</div>
+            </div>
+        </section>
+
+        <!-- Medical ID -->
+        <section class="profile-section glass-panel" id="medical-id-section">
+            <div class="profile-section-header">
+                <h2><i class="ri-user-heart-line"></i> Medical ID</h2>
+            </div>
+
+            <div class="medical-id-content">
+
+                <div id="medical-id-loading" style="text-align: center; padding: 2rem;">
+                    <i class="ri-loader-4-line ri-spin" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Loading profile...</p>
+                </div>
+
+                <!-- FORM VIEW -->
+                <div id="medical-id-form-container" style="display: none;">
+                    <form id="medical-id-form" class="medical-id-form"
+                        style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 0.5rem;">
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label
+                                    style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Age</label>
+                                <input type="number" id="mid-age" placeholder="e.g. 34"
+                                    style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary);">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label
+                                    style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Blood
+                                    Type</label>
+                                <select id="mid-blood"
+                                    style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary);">
+                                    <option value="">Unknown</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label
+                                style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Allergies</label>
+                            <input type="text" id="mid-allergies" placeholder="e.g. Penicillin, Peanuts (or 'None')"
+                                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary);">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label
+                                style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Medications</label>
+                            <textarea id="mid-medications" rows="2" placeholder="List any medications you are taking..."
+                                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary); resize: vertical;"></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label
+                                style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Medical
+                                Conditions</label>
+                            <textarea id="mid-conditions" rows="2" placeholder="e.g. Asthma, Hypertension, Diabetes..."
+                                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary); resize: vertical;"></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label
+                                style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.3rem; display: block;">Emergency
+                                Contacts</label>
+                            <textarea id="mid-contacts" rows="2"
+                                placeholder="Name & Phone Number (e.g. Jane Doe - 555-1234)"
+                                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.02); color: var(--text-primary); resize: vertical;"></textarea>
+                        </div>
+                    </form>
+
+                    <button class="primary-btn" id="save-medical-id-btn"
+                        style="width: 100%; border-radius: 8px; font-weight: 600; min-height: 44px; margin-top: 0.5rem;">
+                        <i class="ri-save-line" style="margin-right: 0.3rem;"></i> Save Information
+                    </button>
+                    <button class="secondary-btn" id="cancel-edit-mid-btn"
+                        style="width: 100%; border-radius: 8px; margin-top: 0.5rem; display: none;">
+                        Cancel
+                    </button>
+                </div>
+
+                <!-- DISPLAY VIEW -->
+                <div id="medical-id-display-container" style="display: none; margin-bottom: 1.5rem;">
+                    <div
+                        style="background: rgba(11, 209, 187, 0.04); border: 1px solid rgba(11, 209, 187, 0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">Age
+                                </p>
+                                <p style="font-weight: 600; color: var(--text-primary); font-size: 1.05rem;"
+                                    id="display-mid-age"></p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">Blood
+                                    Type</p>
+                                <p style="font-weight: 700; color: #ef4444; font-size: 1.05rem;" id="display-mid-blood">
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">Allergies
+                            </p>
+                            <p style="font-weight: 500; color: var(--text-primary);" id="display-mid-allergies"></p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">
+                                Medications</p>
+                            <p style="font-weight: 500; color: var(--text-primary);" id="display-mid-medications"></p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">Medical
+                                Conditions</p>
+                            <p style="font-weight: 500; color: var(--text-primary);" id="display-mid-conditions"></p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">Emergency
+                                Contacts</p>
+                            <p style="font-weight: 500; color: var(--text-primary);" id="display-mid-contacts"></p>
+                        </div>
+                    </div>
+
+                    <button class="secondary-btn" id="edit-medical-id-btn"
+                        style="width: 100%; border-radius: 8px; margin-bottom: 1rem; border-style: dashed;">
+                        <i class="ri-edit-2-line" style="margin-right: 0.3rem;"></i> Edit Medical Information
+                    </button>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                        <button class="secondary-btn whatsapp-btn" id="share-wa-btn"
+                            style="background: rgba(37,211,102,0.1); color: #25D366; border-color: rgba(37,211,102,0.2); border-radius: 8px;">
+                            <i class="ri-whatsapp-fill" style="margin-right: 0.3rem;"></i> WhatsApp
+                        </button>
+                        <button class="secondary-btn qr-btn" id="show-qr-btn" style="border-radius: 8px;">
+                            <i class="ri-qr-code-line" style="margin-right: 0.3rem;"></i> QR Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mid-last-consultation" id="mid-last-consultation-container"
+                    style="display: none; margin-bottom: 1.5rem; margin-top: 1rem;">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-primary);"><i
+                            class="ri-file-chart-line"></i> Last Consultation Summary</h4>
+                    <div id="mid-last-consultation-text"
+                        style="font-size: 0.9rem; color: var(--text-secondary); background: rgba(11, 209, 187, 0.05); border-left: 3px solid var(--primary-color); padding: 1rem; border-radius: 0 8px 8px 0; line-height: 1.5;">
+                        <!-- Fetched from Firestore -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="profile-section glass-panel" id="recent-activity-section">
+            <div class="profile-section-header">
+                <h2><i class="ri-time-line"></i> Recent Activity</h2>
+            </div>
+            <div id="recent-activity-list" class="recent-activity-list">
+                <div class="activity-empty">
+                    <i class="ri-file-list-3-line"></i>
+                    <p>No recent consultations found.</p>
+                    <a href="index.html" class="primary-btn" style="max-width:260px; margin: 1rem auto 0;">
+                        <i class="ri-add-line"></i> Start a Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Diagnosis Quizzes -->
+        <section class="profile-section glass-panel" id="recent-quiz-section">
+            <div class="profile-section-header">
+                <h2><i class="ri-clipboard-pulse-line"></i> Recent Quizzes</h2>
+            </div>
+            <div id="recent-quiz-list" class="recent-activity-list">
+                <div class="activity-empty">
+                    <i class="ri-file-search-line"></i>
+                    <p>No recent diagnosis quizzes found.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Settings -->
+        <section class="profile-section glass-panel">
+            <div class="profile-section-header">
+                <h2><i class="ri-settings-3-line"></i> Quick Settings</h2>
+            </div>
+            <div class="settings-list">
+                <div class="settings-item" id="settings-theme">
+                    <div class="settings-item-left">
+                        <i class="ri-moon-line"></i>
+                        <div>
+                            <div class="settings-item-title">Dark Mode</div>
+                            <div class="settings-item-desc">Switch between light and dark themes</div>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <i class="ri-translate-2"></i>
+                        <div>
+                            <div class="settings-item-title">Language</div>
+                            <div class="settings-item-desc" id="settings-language">English</div>
+                        </div>
+                    </div>
+                    <i class="ri-arrow-right-s-line settings-arrow"></i>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <i class="ri-map-pin-line"></i>
+                        <div>
+                            <div class="settings-item-title">Region</div>
+                            <div class="settings-item-desc" id="settings-region">—</div>
+                        </div>
+                    </div>
+                    <i class="ri-arrow-right-s-line settings-arrow"></i>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <i class="ri-history-line"></i>
+                        <div>
+                            <div class="settings-item-title">Consultation History</div>
+                            <div class="settings-item-desc">View all past consultations</div>
+                        </div>
+                    </div>
+                    <a href="index.html" class="settings-arrow-link"><i
+                            class="ri-arrow-right-s-line settings-arrow"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Actions -->
+        <section class="profile-section glass-panel profile-actions-section">
+            <button id="sign-out-btn" class="sign-out-btn">
+                <i class="ri-logout-box-r-line"></i>
+                <span>Sign Out</span>
+            </button>
+            <p class="sign-out-note">You'll need to sign in again to access your consultations.</p>
+        </section>
+
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="history-overlay hidden">
+        <div class="history-panel glass-panel" style="max-width: 400px; text-align: center;">
+            <div class="history-header">
+                <h3><i class="ri-qr-code-line"></i> Medical ID QR Code</h3>
+                <button id="close-qr-btn" class="icon-btn"><i class="ri-close-large-line"></i></button>
+            </div>
+            <div style="padding: 2rem 1rem;">
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">Show this QR code to
+                    medical responders or emergency contacts for scan-and-go access to your profile.</p>
+                <div id="qrcode-container"
+                    style="display: flex; justify-content: center; background: white; padding: 1.5rem; border-radius: 12px; margin: 0 auto; width: fit-content; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </div>
+            <p class="footer-disclaimer">MySymptoms is an AI-powered health guidance tool for informational purposes
+                only. It does not replace professional medical advice, diagnosis, or treatment.</p>
+            <div class="footer-links">
+                <a href="terms.html"><i class="ri-file-list-3-line"></i> Terms & Conditions</a>
+                <span class="footer-divider">|</span>
+                <a href="privacy.html"><i class="ri-shield-check-line"></i> Privacy Policy</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 MySymptoms. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-performance-compat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="profile.js"></script>
+    <script src="mobile-nav.js"></script>
+</body>
+
+</html>

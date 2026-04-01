@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Attack Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/heart_attack_guide.png" alt="Heart Attack Guide">
+        <h1>Heart Attack Response</h1>
+        <p class="subtitle">Recognize the signs and act quickly to save a life during a cardiac emergency.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Every Minute Without Treatment Damages the Heart</h4>
+                    <p>Call 911/112 at the first sign of a heart attack. Do not drive the person to the hospital
+                        yourself — paramedics can begin treatment on the way.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Recognize the Symptoms</h4>
+                        <p>Chest pain or pressure (may radiate to arm, jaw, or back), shortness of breath, cold sweat,
+                            nausea, lightheadedness. Women may experience atypical symptoms like fatigue and stomach
+                            pain.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Call Emergency Services</h4>
+                        <p>Call 911/112 immediately. Tell them you suspect a heart attack. Stay on the line for
+                            instructions.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Help Them Sit Comfortably</h4>
+                        <p>Help the person sit in a comfortable position — semi-upright with knees bent (the "W"
+                            position). Loosen any tight clothing.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Give Aspirin (if not allergic)</h4>
+                        <p>If the person is not allergic to aspirin and has no contraindications, give them one regular
+                            aspirin (325mg) or four baby aspirin. Have them chew it slowly.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Monitor and Be Ready for CPR</h4>
+                        <p>Stay with them and monitor their breathing. If they become unresponsive and stop breathing,
+                            begin CPR immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Call 911/112 immediately — don't wait to see if symptoms improve</li>
+                        <li>Keep the person calm and still</li>
+                        <li>Give aspirin if not allergic (chew, don't swallow whole)</li>
+                        <li>Be prepared to perform CPR</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't let the person walk or exert themselves</li>
+                        <li>Don't drive them to the hospital yourself</li>
+                        <li>Don't ignore warning signs — "it's probably nothing" attitude kills</li>
+                        <li>Don't give aspirin if allergic or actively bleeding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Heart attack survivors need cardiac
+                        rehabilitation, medication management, and lifestyle modifications.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Regular follow-ups with a
+                        cardiologist are essential for monitoring recovery and preventing recurrence.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

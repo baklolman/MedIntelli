@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="AI Doctor Web App - Get safe medical guidance based on your symptoms">
+    <title>MySymptoms - AI Doctor</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- HTML2PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Background Decoration -->
+    <div class="glass-background"></div>
+
+    <!-- Pre-selection Onboarding Screen -->
+    <div id="onboarding" class="onboarding-overlay">
+        <div class="onboarding-card glass-panel">
+            <div class="logo">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </div>
+            <h2>Welcome</h2>
+            <p>Please select your region and language to personalize your experience.</p>
+
+            <div class="input-group text-left" style="margin-top: 1rem;">
+                <label for="prep-language">AI Interaction Language</label>
+                <select id="prep-language" required>
+                    <option value="English" selected>English</option>
+                    <option value="Spanish">Español</option>
+                    <option value="French">Français</option>
+                    <option value="German">Deutsch</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Arabic">Arabic</option>
+                </select>
+            </div>
+
+            <div class="input-group text-left">
+                <label for="prep-country">Your Country of Residence</label>
+                <select id="prep-country" required>
+                    <option value="" disabled selected>Select your country...</option>
+                    <optgroup label="Top Populated Countries">
+                        <option value="India">India</option>
+                        <option value="China">China</option>
+                        <option value="United States">United States</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Mexico">Mexico</option>
+                    </optgroup>
+                    <optgroup label="Global Regions">
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="France">France</option>
+                        <option value="Japan">Japan</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Other">Other Region</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="input-group text-left" style="margin-top: 0.5rem;">
+                <label>Appearance</label>
+                <div class="theme-picker">
+                    <button type="button" class="theme-option active" data-theme-choice="light">
+                        <i class="ri-sun-line"></i>
+                        <span>Light</span>
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="dark">
+                        <i class="ri-moon-line"></i>
+                        <span>Dark</span>
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="system">
+                        <i class="ri-computer-line"></i>
+                        <span>System</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="checkbox-group" style="margin-top: 1rem;">
+                <input type="checkbox" id="disclaimer-check">
+                <label for="disclaimer-check">I agree that this AI tool does not replace professional medical
+                    advice and I accept the <a href="terms.html" target="_blank" class="legal-link">Terms &
+                        Conditions</a> and <a href="privacy.html" target="_blank" class="legal-link">Privacy
+                        Policy</a>.</label>
+            </div>
+
+            <button id="start-app-btn" class="primary-btn">
+                <i class="ri-arrow-right-line"></i> <span>Launch MySymptoms</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Emergency Guide Modal -->
+    <div id="emergency-modal" class="history-overlay hidden">
+        <div class="history-panel glass-panel emergency-panel">
+            <div class="history-header">
+                <h3 style="color: #ef4444;"><i class="ri-alarm-warning-fill"></i> First-Aid SOS Guidelines</h3>
+                <button id="close-emergency-btn" class="icon-btn"><i class="ri-close-large-line"></i></button>
+            </div>
+            <div class="emergency-content" style="padding-right: 10px;">
+                <!-- Quick Call Button -->
+                <a href="tel:112" class="sos-quick-call">
+                    <i class="ri-phone-fill"></i>
+                    <span>Call Emergency — 112 / 911</span>
+                </a>
+
+                <p class="emergency-disclaimer"><strong>Call 911 / 112 IMMEDIATELY</strong> if the person is
+                    unconscious, not breathing, or bleeding severely. Follow these visual guides while waiting for help.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="sos-search-wrapper">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="sos-search" placeholder="Search guides (e.g. burn, CPR, snake)..."
+                        autocomplete="off">
+                </div>
+
+                <!-- Guide Cards Grid -->
+                <div class="sos-grid" id="sos-grid">
+                    <a href="sos-cpr.html" class="guide-card-link" data-name="CPR No Pulse Not Breathing"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/cpr_guide.png" alt="CPR Guide">
+                            <h4>CPR</h4>
+                            <p>No Pulse / Not Breathing</p>
+                        </div>
+                    </a>
+                    <a href="sos-choking.html" class="guide-card-link" data-name="Choking Heimlich Maneuver"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/choking_guide.png" alt="Choking Guide">
+                            <h4>Choking</h4>
+                            <p>Heimlich Maneuver</p>
+                        </div>
+                    </a>
+                    <a href="sos-stroke.html" class="guide-card-link" data-name="Stroke Recognition FAST"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/stroke_guide.png" alt="Stroke Guide">
+                            <h4>Stroke</h4>
+                            <p>F.A.S.T. Recognition</p>
+                        </div>
+                    </a>
+                    <a href="sos-bleeding.html" class="guide-card-link" data-name="Severe Bleeding Control Wound"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/bleeding_guide.png" alt="Bleeding Guide">
+                            <h4>Bleeding</h4>
+                            <p>Severe Bleeding Control</p>
+                        </div>
+                    </a>
+                    <a href="sos-heart-attack.html" class="guide-card-link" data-name="Heart Attack Chest Pain Cardiac"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/heart_attack_guide.png" alt="Heart Attack Guide">
+                            <h4>Heart Attack</h4>
+                            <p>Chest pain & cardiac arrest</p>
+                        </div>
+                    </a>
+                    <a href="sos-allergic-reaction.html" class="guide-card-link"
+                        data-name="Allergic Reaction Anaphylaxis EpiPen" data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/allergic_reaction_guide.png" alt="Allergic Reaction Guide">
+                            <h4>Anaphylaxis</h4>
+                            <p>Severe Allergic Reaction</p>
+                        </div>
+                    </a>
+                    <a href="sos-seizure.html" class="guide-card-link" data-name="Seizure Epilepsy Convulsions"
+                        data-severity="moderate">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge moderate">Moderate</span>
+                            <img src="./images/seizure_guide.png" alt="Seizure Guide">
+                            <h4>Seizure</h4>
+                            <p>Epilepsy & Convulsions</p>
+                        </div>
+                    </a>
+                    <a href="sos-burn.html" class="guide-card-link" data-name="Burn Treatment Scald Fire"
+                        data-severity="moderate">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge moderate">Moderate</span>
+                            <img src="./images/burn_guide.png" alt="Burn Guide">
+                            <h4>Burns</h4>
+                            <p>Burn & Scald Treatment</p>
+                        </div>
+                    </a>
+                    <a href="sos-fracture.html" class="guide-card-link" data-name="Fracture Broken Bone Splint"
+                        data-severity="moderate">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge moderate">Moderate</span>
+                            <img src="./images/fracture_guide.png" alt="Fracture Guide">
+                            <h4>Fracture</h4>
+                            <p>Broken Bone First Aid</p>
+                        </div>
+                    </a>
+                    <a href="sos-drowning.html" class="guide-card-link" data-name="Drowning Water Rescue Swimming"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/drowning_guide.png" alt="Drowning Guide">
+                            <h4>Drowning</h4>
+                            <p>Water Rescue & CPR</p>
+                        </div>
+                    </a>
+                    <a href="sos-poisoning.html" class="guide-card-link" data-name="Poisoning Toxic Ingestion Chemical"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/poisoning_guide.png" alt="Poisoning Guide">
+                            <h4>Poisoning</h4>
+                            <p>Toxic Ingestion Response</p>
+                        </div>
+                    </a>
+                    <a href="sos-electric-shock.html" class="guide-card-link" data-name="Electric Shock Electrocution"
+                        data-severity="critical">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge critical">Critical</span>
+                            <img src="./images/electric_shock_guide.png" alt="Electric Shock Guide">
+                            <h4>Electric Shock</h4>
+                            <p>Electrocution Response</p>
+                        </div>
+                    </a>
+                    <a href="sos-heatstroke.html" class="guide-card-link" data-name="Heatstroke Heat Exhaustion Sun"
+                        data-severity="moderate">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge moderate">Moderate</span>
+                            <img src="./images/heatstroke_guide.png" alt="Heatstroke Guide">
+                            <h4>Heatstroke</h4>
+                            <p>Heat Exhaustion & Sunstroke</p>
+                        </div>
+                    </a>
+                    <a href="sos-snake-bite.html" class="guide-card-link" data-name="Snake Bite Venom Reptile"
+                        data-severity="moderate">
+                        <div class="guide-card-mini">
+                            <span class="severity-badge moderate">Moderate</span>
+                            <img src="./images/snake_bite_guide.png" alt="Snake Bite Guide">
+                            <h4>Snake Bite</h4>
+                            <p>Venom & Bite Response</p>
+                        </div>
+                    </a>
+                </div>
+
+                <p id="sos-no-results" class="sos-no-results hidden">No guides found matching your search.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body Map Modal -->
+    <div id="body-map-modal" class="history-overlay hidden">
+        <div class="body-map-panel glass-panel">
+            <div class="history-header">
+                <h3><i class="ri-body-scan-line"></i> Select Body Location</h3>
+                <button id="close-body-map-btn" class="icon-btn"><i class="ri-close-large-line"></i></button>
+            </div>
+            <p class="body-map-hint">Tap the areas where you feel discomfort. You can select multiple areas.</p>
+
+            <div class="body-map-views">
+                <!-- Front View -->
+                <div class="body-map-view">
+                    <span class="body-view-label">Front</span>
+                    <svg class="body-map-svg" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Head -->
+                        <ellipse class="body-region" data-region="Head" cx="100" cy="35" rx="28" ry="32" />
+                        <!-- Neck (non-clickable connector) -->
+                        <rect x="90" y="67" width="20" height="14" fill="none" stroke="none" />
+                        <!-- Left Arm -->
+                        <path class="body-region" data-region="Left Arm"
+                            d="M60,95 Q45,90 35,105 L20,170 Q15,185 25,188 L35,185 L50,130 Q55,115 60,110 Z" />
+                        <!-- Right Arm -->
+                        <path class="body-region" data-region="Right Arm"
+                            d="M140,95 Q155,90 165,105 L180,170 Q185,185 175,188 L165,185 L150,130 Q145,115 140,110 Z" />
+                        <!-- Chest -->
+                        <path class="body-region" data-region="Chest"
+                            d="M65,82 Q100,75 135,82 L140,95 L140,145 Q100,150 60,145 L60,95 Z" />
+                        <!-- Abdomen -->
+                        <path class="body-region" data-region="Abdomen"
+                            d="M60,148 Q100,153 140,148 L140,210 Q130,230 100,232 Q70,230 60,210 Z" />
+                        <!-- Left Leg -->
+                        <path class="body-region" data-region="Left Leg"
+                            d="M60,215 Q65,232 75,235 L80,310 L85,380 Q85,400 75,405 L65,400 L60,380 L55,310 Q50,260 55,235 Z" />
+                        <!-- Right Leg -->
+                        <path class="body-region" data-region="Right Leg"
+                            d="M140,215 Q135,232 125,235 L120,310 L115,380 Q115,400 125,405 L135,400 L140,380 L145,310 Q150,260 145,235 Z" />
+                    </svg>
+                </div>
+
+                <!-- Back View -->
+                <div class="body-map-view">
+                    <span class="body-view-label">Back</span>
+                    <svg class="body-map-svg" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Head (back) -->
+                        <ellipse class="body-region" data-region="Head" cx="100" cy="35" rx="28" ry="32" />
+                        <!-- Neck -->
+                        <rect x="90" y="67" width="20" height="14" fill="none" stroke="none" />
+                        <!-- Left Arm (back) -->
+                        <path class="body-region" data-region="Left Arm"
+                            d="M60,95 Q45,90 35,105 L20,170 Q15,185 25,188 L35,185 L50,130 Q55,115 60,110 Z" />
+                        <!-- Right Arm (back) -->
+                        <path class="body-region" data-region="Right Arm"
+                            d="M140,95 Q155,90 165,105 L180,170 Q185,185 175,188 L165,185 L150,130 Q145,115 140,110 Z" />
+                        <!-- Upper Back -->
+                        <path class="body-region" data-region="Upper Back"
+                            d="M65,82 Q100,75 135,82 L140,95 L140,145 Q100,150 60,145 L60,95 Z" />
+                        <!-- Lower Back -->
+                        <path class="body-region" data-region="Lower Back"
+                            d="M60,148 Q100,153 140,148 L140,210 Q130,230 100,232 Q70,230 60,210 Z" />
+                        <!-- Left Leg (back) -->
+                        <path class="body-region" data-region="Left Leg"
+                            d="M60,215 Q65,232 75,235 L80,310 L85,380 Q85,400 75,405 L65,400 L60,380 L55,310 Q50,260 55,235 Z" />
+                        <!-- Right Leg (back) -->
+                        <path class="body-region" data-region="Right Leg"
+                            d="M140,215 Q135,232 125,235 L120,310 L115,380 Q115,400 125,405 L135,400 L140,380 L145,310 Q150,260 145,235 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Selected parts chips -->
+            <div id="body-map-chips" class="body-map-chips"></div>
+
+            <button type="button" id="body-map-done-btn" class="primary-btn" style="margin-top:1rem;">
+                <i class="ri-check-line"></i> <span>Done</span>
+            </button>
+        </div>
+    </div>
+    <!-- History Sidebar/Modal -->
+    <div id="history-modal" class="history-overlay hidden">
+        <div class="history-panel glass-panel">
+            <div class="history-header">
+                <h3>Consultation History</h3>
+                <button id="close-history-btn" class="icon-btn"><i class="ri-close-large-line"></i></button>
+            </div>
+            <div id="history-list" class="history-list">
+                <!-- History items injected here -->
+            </div>
+            <button id="clear-history-btn" class="secondary-btn" style="margin-top: 1rem; width: 100%;"><i
+                    class="ri-delete-bin-line"></i> Clear History</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </div>
+            <div class="nav-actions">
+                <a href="profile.html" class="user-profile-link">
+                    <div id="user-profile-display" class="user-profile-display hidden">
+                        <!-- Populated by JS -->
+                    </div>
+                </a>
+                <a href="diagnosis-quiz.html" class="nav-btn" title="Diagnosis Quiz"><i
+                        class="ri-clipboard-pulse-line"></i>
+                    <span>Quiz</span></a>
+                <a href="tracker.html" class="nav-btn" title="Symptom Tracker"><i class="ri-pulse-line"></i>
+                    <span>Tracker</span></a>
+                <button id="emergency-guide-btn" class="nav-btn emergency-btn"><i class="ri-alarm-warning-line"></i>
+                    <span>SOS Guide</span></button>
+                <button id="history-btn" class="nav-btn"><i class="ri-history-line"></i> <span>History</span></button>
+                <button id="theme-toggle-btn" class="nav-btn" title="Toggle Dark Mode"><i
+                        class="ri-moon-line"></i></button>
+                <button id="sign-out-btn" class="nav-btn" title="Sign Out" style="display:none;"><i
+                        class="ri-logout-box-r-line"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>Clinical AI Assistant</h1>
+            <p>Intelligent, fast, and structured guidance for your health concerns.</p>
+        </div>
+
+        <form id="symptom-form" class="glass-panel">
+            <div class="form-grid">
+
+                <!-- Age -->
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="1" max="150" placeholder="e.g. 34" required>
+                </div>
+
+                <!-- Gender -->
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                    </select>
+                </div>
+
+                <!-- Symptoms -->
+                <div class="input-group col-span-2">
+                    <label for="symptoms">Describe your Symptoms</label>
+                    <div class="textarea-wrapper">
+                        <textarea id="symptoms" name="symptoms"
+                            placeholder="Provide as much detail as possible (e.g. sharp pain in lower back, headache for 3 days, continuous coughing...)"
+                            required></textarea>
+                        <button type="button" id="voice-input-btn" class="voice-btn" title="Speak your symptoms">
+                            <i class="ri-mic-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Body Location with Body Map -->
+                <div class="input-group">
+                    <label for="location">Body Location (Optional)</label>
+                    <div class="body-map-input-row">
+                        <input type="text" id="location" name="location" placeholder="Tap body map to select..."
+                            readonly>
+                        <button type="button" id="open-body-map-btn" class="body-map-trigger-btn"
+                            title="Select on body map">
+                            <i class="ri-body-scan-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Severity Pain Scale -->
+                <div class="input-group">
+                    <label for="severity-slider">Pain Level</label>
+                    <div class="pain-scale-container">
+                        <input type="range" id="severity-slider" name="severity-slider" min="1" max="10" value="3"
+                            class="pain-slider">
+                        <div class="pain-scale-labels">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                        </div>
+                        <div id="pain-label" class="pain-label mild">Mild — Discomfort, but manageable</div>
+                    </div>
+                    <input type="hidden" id="severity" name="severity" value="mild">
+                </div>
+
+                <!-- Current Medications -->
+                <div class="input-group col-span-2">
+                    <label for="medications">Current Medications (Optional)</label>
+                    <input type="text" id="medications" name="medications"
+                        placeholder="e.g. Aspirin, Metformin, Lisinopril — to check for drug interactions">
+                </div>
+
+            </div>
+
+            <button type="submit" id="submit-btn" class="primary-btn submit-btn">
+                <i class="ri-microscope-line"></i>
+                <span>Analyze Symptoms</span>
+                <div class="spinner hidden"></div>
+            </button>
+        </form>
+
+        <!-- Generation Results Container -->
+        <div id="results" class="results-container hidden">
+            <!-- Prescription Pad injected via JS here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <i class="ri-heart-pulse-fill"></i>
+                <span>MySymptoms</span>
+            </div>
+            <p class="footer-disclaimer">MySymptoms is an AI-powered health guidance tool for informational purposes
+                only. It does not replace professional medical advice, diagnosis, or treatment.</p>
+            <div class="footer-links">
+                <a href="terms.html"><i class="ri-file-list-3-line"></i> Terms & Conditions</a>
+                <span class="footer-divider">|</span>
+                <a href="privacy.html"><i class="ri-shield-check-line"></i> Privacy Policy</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 MySymptoms. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-performance-compat.js"></script>
+    <script src="script.js"></script>
+    <script src="mobile-nav.js"></script>
+</body>
+
+</html>

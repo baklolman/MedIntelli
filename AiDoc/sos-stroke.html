@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/stroke_guide.png" alt="Stroke Guide">
+        <h1>Stroke — F.A.S.T. Recognition</h1>
+        <p class="subtitle">Recognizing stroke symptoms and acting fast can save lives and prevent brain damage.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Time is Brain — Every Minute Counts</h4>
+                    <p>Call 911/112 immediately if you suspect a stroke. Treatment within the first 3 hours can
+                        dramatically reduce long-term damage. Note the time symptoms first appeared.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> F.A.S.T. Method</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">F</div>
+                    <div class="step-content">
+                        <h4>Face Drooping</h4>
+                        <p>Ask the person to smile. Does one side of the face droop or feel numb? An uneven smile is a
+                            warning sign.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">A</div>
+                    <div class="step-content">
+                        <h4>Arm Weakness</h4>
+                        <p>Ask the person to raise both arms. Does one arm drift downward? Inability to raise one arm is
+                            a critical indicator.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">S</div>
+                    <div class="step-content">
+                        <h4>Speech Difficulty</h4>
+                        <p>Ask the person to repeat a simple sentence. Is their speech slurred, garbled, or hard to
+                            understand?</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">T</div>
+                    <div class="step-content">
+                        <h4>Time to Call Emergency</h4>
+                        <p>If you observe ANY of these signs, call emergency services immediately. Note the exact time
+                            symptoms started — this is critical for treatment decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> While Waiting for Help</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Keep them Comfortable</h4>
+                        <p>Help them lie down with their head slightly elevated. Loosen any tight clothing around the
+                            neck.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Monitor Breathing</h4>
+                        <p>Watch their breathing carefully. If they become unconscious and stop breathing, be prepared
+                            to begin CPR.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Do Not Give Anything by Mouth</h4>
+                        <p>Do not give food, water, or medication. Their swallowing reflex may be impaired.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Note the time when symptoms first appeared</li>
+                        <li>Stay calm and reassure the person</li>
+                        <li>Keep them in a comfortable position</li>
+                        <li>Be prepared to perform CPR if needed</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't give aspirin — the stroke may be hemorrhagic</li>
+                        <li>Don't let the person go to sleep</li>
+                        <li>Don't give food or water</li>
+                        <li>Don't delay calling emergency services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Stroke recovery often involves
+                        physical therapy, speech therapy, and occupational therapy over weeks to months.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Follow up with a neurologist for
+                        long-term management and to prevent recurrence.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

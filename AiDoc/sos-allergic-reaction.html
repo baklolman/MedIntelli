@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergic Reaction Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/allergic_reaction_guide.png" alt="Allergic Reaction Guide">
+        <h1>Anaphylaxis — Severe Allergic Reaction</h1>
+        <p class="subtitle">A life-threatening allergic reaction that requires immediate epinephrine and emergency care.
+        </p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Anaphylaxis Can Kill Within Minutes</h4>
+                    <p>Use an EpiPen immediately if available and call 911/112. Anaphylaxis causes swelling of the
+                        airway, a dangerous drop in blood pressure, and can be fatal within 15 minutes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Recognize the Signs</h4>
+                        <p>Hives, swelling (face, lips, throat), difficulty breathing, wheezing, rapid pulse, dizziness,
+                            nausea/vomiting, or loss of consciousness.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Use Epinephrine (EpiPen)</h4>
+                        <p>If the person has an EpiPen, use it immediately. Remove the safety cap, press firmly against
+                            the outer thigh (through clothing is OK), and hold for 10 seconds.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Call Emergency Services</h4>
+                        <p>Call 911/112 even if epinephrine is administered. The reaction can come back (biphasic
+                            reaction). A second dose may be needed after 5–15 minutes.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Position the Person</h4>
+                        <p>If breathing is difficult, help them sit upright. If they feel faint or dizzy, lay them on
+                            their back with legs elevated. If vomiting, place on their side.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Monitor Until Help Arrives</h4>
+                        <p>Stay with them. Be prepared for a second reaction. If they stop breathing, begin CPR
+                            immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Use the EpiPen as soon as symptoms appear</li>
+                        <li>Call 911/112 even after EpiPen use</li>
+                        <li>Remove the allergen trigger if possible (e.g., remove bee stinger)</li>
+                        <li>Note the time epinephrine was given</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't wait to see if symptoms improve before using EpiPen</li>
+                        <li>Don't make the person sit up if they feel faint</li>
+                        <li>Don't give oral medications if they are having difficulty swallowing</li>
+                        <li>Don't leave them alone</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Always go to the emergency room
+                        after anaphylaxis, even if symptoms improve. Biphasic reactions can occur hours later.</span>
+                </div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>See an allergist for testing and
+                        carry two EpiPens at all times. Get a medical alert bracelet.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Bite Guide — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/snake_bite_guide.png" alt="Snake Bite Guide">
+        <h1>Snake Bite — Venom Response</h1>
+        <p class="subtitle">Proper first aid for snake bites to slow venom spread and prevent complications.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Get to a Hospital as Fast as Possible</h4>
+                    <p>Call 911/112 or get to the nearest emergency room immediately. Antivenin treatment must be given
+                        within hours. Try to remember the snake's color, shape, and size — but do NOT try to catch or
+                        kill it.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Move Away From the Snake</h4>
+                        <p>Get the person (and yourself) away from the snake safely. Snakes can strike again. Do not try
+                            to handle or kill the snake.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Keep the Person Still and Calm</h4>
+                        <p>Movement increases blood flow and spreads venom faster. Have the person lie down and keep the
+                            bitten limb as still as possible, ideally at or below heart level.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Remove Jewelry and Tight Clothing</h4>
+                        <p>Remove rings, watches, bracelets, and tight clothing near the bite site before swelling
+                            begins.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Clean the Wound Gently</h4>
+                        <p>Clean the bite with soap and water if available. Cover with a clean, dry bandage. Do not
+                            apply ice or a tourniquet.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Mark the Swelling Edge</h4>
+                        <p>Use a pen to mark the edge of swelling and note the time. This helps doctors track venom
+                            progression. Re-mark if swelling spreads.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <h4>Get to the Hospital</h4>
+                        <p>Transport the person to the nearest emergency room as quickly as possible. Carry them if
+                            possible — they should not walk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Keep the person still and calm</li>
+                        <li>Remove jewelry near the bite before swelling</li>
+                        <li>Keep the bitten limb at or below heart level</li>
+                        <li>Note the snake's appearance if possible (or take a photo from a safe distance)</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't suck out the venom — this doesn't work and can cause infection</li>
+                        <li>Don't apply ice or a tourniquet</li>
+                        <li>Don't cut the wound open</li>
+                        <li>Don't give alcohol, aspirin, or caffeine</li>
+                        <li>Don't try to catch or kill the snake</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>Hospital treatment may include
+                        antivenin, wound care, tetanus booster, and blood tests to monitor clotting and organ
+                        function.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Recovery time varies from days to
+                        weeks depending on the type of venom and severity. Follow up with your doctor for wound
+                        checks.</span></div>
+                <div class="aftercare-item"><i class="ri-mental-health-line"></i><span>Wear boots and long pants when
+                        hiking. Watch where you step and reach in snake-prone areas.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>

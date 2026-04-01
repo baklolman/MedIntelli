@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drowning Rescue — MySymptoms SOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="sos-detail-page">
+    <div class="glass-background"></div>
+    <div class="sos-detail-header">
+        <button class="sos-back-btn" onclick="window.location.href='index.html#sos'"><i class="ri-arrow-left-line"></i>
+            Back to SOS Guide</button>
+        <div class="logo" style="margin-left:auto;"><i class="ri-heart-pulse-fill"></i><span>MySymptoms</span></div>
+    </div>
+    <div class="sos-detail-hero">
+        <img src="./images/drowning_guide.png" alt="Drowning Rescue Guide">
+        <h1>Drowning — Water Rescue & CPR</h1>
+        <p class="subtitle">How to safely rescue and resuscitate a drowning victim.</p>
+    </div>
+    <div class="sos-detail-body">
+        <div class="sos-section">
+            <div class="sos-callout">
+                <i class="ri-alarm-warning-fill"></i>
+                <div>
+                    <h4>Call 911/112 Immediately</h4>
+                    <p>Drowning can cause death in under 5 minutes. Never enter deep water unless you are a trained
+                        rescuer. Use a reaching or throwing rescue method first. Brain damage begins after just 4
+                        minutes without oxygen.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-list-ordered-2"></i> Step-by-Step Instructions</h2>
+            <div class="sos-steps">
+                <div class="sos-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Call for Help First</h4>
+                        <p>Call 911/112 immediately. Shout for a lifeguard. Do NOT jump in unless you are trained —
+                            panicking drowning victims can pull rescuers under.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Reach or Throw, Don't Go</h4>
+                        <p>Extend a pole, rope, towel, or branch to the person. Throw a life ring, cooler, or any
+                            flotation device. Only enter water as a last resort and with a flotation aid.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Remove From Water</h4>
+                        <p>Once the person is out of the water, lay them on their back on a flat surface. Check for
+                            responsiveness — tap and shout.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Check Breathing</h4>
+                        <p>Look, listen, and feel for breathing for no more than 10 seconds. If they are not breathing
+                            or only gasping, begin CPR immediately.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Begin CPR</h4>
+                        <p>Give 5 initial rescue breaths first (drowning victims need air urgently), then continue with
+                            standard CPR: 30 chest compressions followed by 2 breaths. Continue until help arrives.</p>
+                    </div>
+                </div>
+                <div class="sos-step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <h4>Recovery Position</h4>
+                        <p>If the person starts breathing, place them in the recovery position (on their side) to allow
+                            water to drain from their mouth. Keep them warm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-checkbox-multiple-line"></i> Do's and Don'ts</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-col">
+                    <h3><i class="ri-check-line"></i> Do's</h3>
+                    <ul>
+                        <li>Call emergency services before attempting rescue</li>
+                        <li>Use reach-throw-row-go method (in that order)</li>
+                        <li>Start rescue breathing as soon as possible</li>
+                        <li>Keep the person warm after rescue</li>
+                    </ul>
+                </div>
+                <div class="donts-col">
+                    <h3><i class="ri-close-line"></i> Don'ts</h3>
+                    <ul>
+                        <li>Don't jump in unless trained — you may drown too</li>
+                        <li>Don't try to pump water out of the stomach</li>
+                        <li>Don't assume the person is fine if they are conscious — "secondary drowning" can occur hours
+                            later</li>
+                        <li>Don't leave a rescued person unattended</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sos-section">
+            <h2><i class="ri-heart-pulse-line"></i> Aftercare</h2>
+            <div class="aftercare-list">
+                <div class="aftercare-item"><i class="ri-stethoscope-line"></i><span>All near-drowning victims must be
+                        evaluated at a hospital, even if they seem fine. Delayed pulmonary edema ("secondary drowning")
+                        can occur 1–24 hours later.</span></div>
+                <div class="aftercare-item"><i class="ri-shield-check-line"></i><span>Monitor for coughing, difficulty
+                        breathing, or unusual sleepiness in the hours after the incident.</span></div>
+            </div>
+        </div>
+    </div>
+    <script>const t = localStorage.getItem('medintelli_theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system' && window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');</script>
+</body>
+
+</html>
