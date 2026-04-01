@@ -24,7 +24,7 @@ let resolvedAuthUser = null;
 
 // BUG FIX #1: Remove API key from client-side JS — use env variable or backend proxy.
 // For now keeping it here to match original, but flag it.
-const API_KEY = "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";
+const API_KEY = "gsk_Jpeg0ZcWriCfdsfsfY6jn4E4vmTbLJXA";
 
 if (typeof firebase !== 'undefined') {
     if (firebase.firestore) db = firebase.firestore();
