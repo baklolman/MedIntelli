@@ -1,4 +1,4 @@
-=
+Try Now https://medintelli.netlify.app/=
 # 🩺 MySymptoms — Clinical AI Assistant
 
 > Intelligent, fast, and structured health guidance — available instantly, 24/7.
