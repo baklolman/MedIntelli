@@ -6,7 +6,7 @@
 // IMPORTANT: Replace these values with your own Firebase project credentials
 // Go to https://console.firebase.google.com → Your Project → Settings → General → Your Apps
 const firebaseConfig = {
-    apiKey: "AIzaSyD7q-9_5SOHE2B-A5FJA_UAuyCZFUapSWQ",
+    apiKey: "aa",
     authDomain: "medintelli-team.firebaseapp.com",
     projectId: "medintelli-team",
     storageBucket: "medintelli-team.firebasestorage.app",
