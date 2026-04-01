@@ -4,7 +4,7 @@
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyD7q-9_5SOHE2B-A5FJA_UAuyCZFUapSWQ",
+    apiKey: "AsssawdSOHE2B-A5FJA_UAuyCZFUapSWQ",
     authDomain: "medintelli-team.firebaseapp.com",
     projectId: "medintelli-team",
     storageBucket: "medintelli-team.firebasestorage.app",
