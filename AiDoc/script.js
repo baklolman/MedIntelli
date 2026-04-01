@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // API Setup
-    const API_KEY = "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";
+    const API_KEY = "api";
 
     // DOM Elements - Onboarding
     const onboarding = document.getElementById('onboarding');
