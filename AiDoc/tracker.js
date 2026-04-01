@@ -4,7 +4,7 @@
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AsssawdSOHE2B-A5FJA_UAuyCZFUapSWQ",
+    apiKey: "removed",
     authDomain: "medintelli-team.firebaseapp.com",
     projectId: "medintelli-team",
     storageBucket: "medintelli-team.firebasestorage.app",
